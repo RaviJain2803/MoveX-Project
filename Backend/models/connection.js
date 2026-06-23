@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
-try {
-const url = "mongodb://127.0.0.1:27017/M&P";
 
-mongoose.connect(url);
-
-console.log("Successfully connected to mongodb database");
-
-} catch (error) {
-    console.log("Faild DataBase connection");
-    
+const connectDb = async ()=>{
+    try {
+        await mongoose.connect(process.env.MONGO_URI);
+        console.log("MongoDb connected")
+    } catch (error) {
+        console.log("Failed to connect");
+    }
 }
+
+export default connectDb;

@@ -1,10 +1,13 @@
 import express from "express";
+import connectDb from "./models/connection.js";
 import cors from "cors";
 import fileUpload from "express-fileupload";
 import path from "path";
 
 import dotenv from "dotenv";
 dotenv.config();
+
+await connectDb();
 
 // app config
 const app = express();
