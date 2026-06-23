@@ -1,0 +1,262 @@
+.edit-register{
+padding:85px 20px 40px;
+
+background:
+linear-gradient(
+135deg,
+#eef2ff,
+#f8fafc,
+#dbeafe
+);
+
+min-height:100vh;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+}
+
+
+/* Heading */
+
+.edit-register h1{
+
+font-size:38px;
+
+margin-bottom:18px;
+
+color:#0a192f;
+
+text-align:center;
+
+}
+
+
+/* Form Card */
+
+.edit-register-form{
+
+width:100%;
+
+max-width:650px;
+
+background:white;
+
+padding:25px;
+
+border-radius:15px;
+
+box-shadow:
+0px 8px 25px
+rgba(0,0,0,.08);
+
+border:1px solid #e2e8f0;
+
+}
+
+
+/* Input Group */
+
+.input-groupss{
+
+display:flex;
+
+flex-direction:column;
+
+margin-bottom:16px;
+
+}
+
+
+/* Label */
+
+.input-groupss label{
+
+margin-bottom:7px;
+
+font-weight:600;
+
+font-size:15px;
+
+color:#0a192f;
+
+}
+
+
+/* Inputs */
+
+.input-fields{
+
+width:100%;
+
+padding:12px;
+
+border:1px solid #ddd;
+
+border-radius:8px;
+
+outline:none;
+
+font-size:15px;
+
+transition:.3s;
+
+background:#fff;
+}
+
+
+.input-fields:focus{
+
+border-color:#2563eb;
+
+box-shadow:
+0 0 6px
+rgba(37,99,235,.25);
+
+}
+
+
+/* textarea */
+
+textarea.input-fields{
+
+height:90px;
+
+resize:none;
+
+}
+
+
+/* readonly */
+
+input[readonly]{
+
+background:#f1f5f9;
+
+cursor:not-allowed;
+
+}
+
+
+/* Radio */
+
+.radio-group{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+margin-top:8px;
+
+flex-wrap:wrap;
+
+}
+
+
+.radio-group input{
+
+cursor:pointer;
+
+transform:scale(1.05);
+
+}
+
+
+/* button */
+
+.edit-register-form button{
+
+width:100%;
+
+padding:12px;
+
+margin-top:10px;
+
+border:none;
+
+border-radius:8px;
+
+background:
+linear-gradient(
+90deg,
+#2563eb,
+#3b82f6
+);
+
+color:white;
+
+font-size:16px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+.edit-register-form button:hover{
+
+transform:
+translateY(-2px);
+
+box-shadow:
+0 8px 18px
+rgba(37,99,235,.25);
+
+}
+
+
+/* Tablet */
+
+@media(max-width:768px){
+
+.edit-register{
+
+padding:80px 15px 30px;
+
+}
+
+.edit-register h1{
+
+font-size:32px;
+
+}
+
+.edit-register-form{
+
+padding:22px;
+
+}
+
+}
+
+
+/* Mobile */
+
+@media(max-width:480px){
+
+.edit-register h1{
+
+font-size:26px;
+
+}
+
+.edit-register-form{
+
+padding:18px;
+
+}
+
+.radio-group{
+
+gap:10px;
+
+}
+
+}

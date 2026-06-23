@@ -1,0 +1,134 @@
+/* Main Container */
+
+.view-category-container {
+    width: 95%;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* Heading */
+
+.view-category-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Search Box */
+
+.search-box {
+    width: 100%;
+    max-width: 350px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.search-box:focus {
+    border-color: #007bff;
+}
+
+/* Table */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+table thead {
+    background: #343a40;
+    color: white;
+}
+
+table th,
+table td {
+    padding: 14px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+/* Category Image */
+
+.category-icon {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Status Button */
+
+.status-btn {
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.active-btn {
+    background: #28a745;
+}
+
+.active-btn:hover {
+    background: #218838;
+}
+
+.inactive-btn {
+    background: #dc3545;
+}
+
+.inactive-btn:hover {
+    background: #c82333;
+}
+
+/* Edit Button */
+
+.edit-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.edit-btn:hover {
+    background: #0056b3;
+}
+
+/* No Data Row */
+
+table td[colspan] {
+    font-weight: bold;
+    color: #666;
+    padding: 20px;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    .view-category-container {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 800px;
+    }
+}

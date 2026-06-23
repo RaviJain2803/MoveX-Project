@@ -1,0 +1,255 @@
+.contact{
+
+padding:80px 10%;
+
+background:#f8f9fa;
+
+}
+
+
+/* Header */
+
+.contact-header{
+
+text-align:center;
+
+margin-bottom:60px;
+
+}
+
+
+.contact-header h1{
+
+font-size:45px;
+
+margin-bottom:15px;
+
+color:#0a192f;
+
+}
+
+
+.contact-header span{
+
+color:orange;
+
+}
+
+
+.contact-header p{
+
+color:#666;
+
+line-height:1.8;
+
+font-size:18px;
+
+}
+
+
+
+/* Main */
+
+.contact-container{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:40px;
+
+}
+
+
+
+/* Left */
+
+.contact-info{
+
+background:#0a192f;
+
+color:white;
+
+padding:40px;
+
+border-radius:15px;
+
+}
+
+
+.contact-info h2{
+
+margin-bottom:30px;
+
+color:orange;
+
+}
+
+
+.contact-item{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+margin-bottom:25px;
+
+}
+
+
+.contact-icon{
+
+color:orange;
+
+font-size:20px;
+
+min-width:25px;
+
+}
+
+
+.contact-item a{
+
+color:white;
+
+text-decoration:none;
+
+}
+
+
+.contact-item a:hover{
+
+color:orange;
+
+}
+
+
+
+/* Right */
+
+.contact-form-area{
+
+padding:35px;
+
+background:white;
+
+border-radius:15px;
+
+box-shadow:
+0px 3px 15px rgba(0,0,0,.1);
+
+}
+
+
+.contact-form{
+
+display:flex;
+
+flex-direction:column;
+
+gap:18px;
+
+}
+
+
+.contact-form input,
+.contact-form textarea{
+
+padding:14px;
+
+border:1px solid #ddd;
+
+border-radius:8px;
+
+outline:none;
+
+font-size:15px;
+
+}
+
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+
+border-color:orange;
+
+}
+
+
+.contact-form button{
+
+padding:14px;
+
+background:orange;
+
+border:none;
+
+cursor:pointer;
+
+border-radius:8px;
+
+font-size:16px;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+
+.contact-form button:hover{
+
+transform:translateY(-3px);
+
+}
+
+
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.contact{
+
+padding:50px 20px;
+
+}
+
+.contact-container{
+
+grid-template-columns:1fr;
+
+}
+
+.contact-header h1{
+
+font-size:35px;
+
+}
+
+}
+
+
+@media(max-width:480px){
+
+.contact-header h1{
+
+font-size:28px;
+
+}
+
+.contact-info{
+
+padding:25px;
+
+}
+
+.contact-form-area{
+
+padding:25px;
+
+}
+
+}

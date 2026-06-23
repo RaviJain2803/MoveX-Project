@@ -1,0 +1,105 @@
+.success-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #00c9ff, #92fe9d);
+    font-family: Arial, sans-serif;
+}
+
+.success-card {
+    width: 100%;
+    max-width: 420px;
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.success-icon {
+    font-size: 64px;
+    color: #28a745;
+    margin-bottom: 15px;
+}
+
+.success-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.success-text {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+/* Button */
+.success-btn {
+    width: 100%;
+    max-width: 220px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: #28a745;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.success-btn:hover {
+    background: #218838;
+    transform: translateY(-2px);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 📱 Mobile */
+@media (max-width: 480px) {
+    .success-card {
+        padding: 25px 20px;
+    }
+
+    .success-icon {
+        font-size: 50px;
+    }
+
+    .success-title {
+        font-size: 20px;
+    }
+
+    .success-text {
+        font-size: 13px;
+    }
+
+    .success-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+/* 📱 Tablet */
+@media (max-width: 768px) {
+    .success-card {
+        max-width: 380px;
+    }
+}

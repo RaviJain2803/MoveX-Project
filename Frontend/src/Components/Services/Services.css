@@ -1,0 +1,174 @@
+.services{
+
+padding:80px 10%;
+
+background:#f8f9fa;
+
+}
+
+
+/* Header */
+
+.services-header{
+
+text-align:center;
+
+margin-bottom:60px;
+
+}
+
+
+.services-header h1{
+
+font-size:45px;
+
+margin-bottom:15px;
+
+color:#0a192f;
+
+}
+
+
+.services-header span{
+
+color:orange;
+
+}
+
+
+.services-header p{
+
+color:#666;
+
+line-height:1.8;
+
+font-size:18px;
+
+}
+
+
+
+/* Grid */
+
+.services-container{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:30px;
+
+}
+
+
+
+/* Card */
+
+.service-card{
+
+background:white;
+
+padding:35px;
+
+border-radius:15px;
+
+text-align:center;
+
+box-shadow:
+0px 3px 15px rgba(0,0,0,.1);
+
+transition:.3s;
+
+cursor:pointer;
+
+}
+
+
+.service-card:hover{
+
+transform:translateY(-10px);
+
+}
+
+
+/* Icon */
+
+.service-icon{
+
+font-size:45px;
+
+color:orange;
+
+margin-bottom:20px;
+
+}
+
+
+.service-card h2{
+
+margin-bottom:15px;
+
+color:#0a192f;
+
+}
+
+
+.service-card p{
+
+line-height:1.8;
+
+color:#666;
+
+}
+
+
+
+/* Tablet */
+
+@media(max-width:768px){
+
+.services{
+
+padding:50px 20px;
+
+}
+
+.services-container{
+
+grid-template-columns:1fr 1fr;
+
+}
+
+.services-header h1{
+
+font-size:35px;
+
+}
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:480px){
+
+.services-container{
+
+grid-template-columns:1fr;
+
+}
+
+.services-header h1{
+
+font-size:28px;
+
+}
+
+.service-card{
+
+padding:25px;
+
+}
+
+}

@@ -1,0 +1,124 @@
+.register{
+    padding:85px 20px 40px;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* Heading */
+.register h1{
+    font-size: 38px;
+    margin-bottom: 18px;
+    color: #0a192f;
+    text-align: center;
+}
+
+.register-form{
+    width: 100%;
+    max-width: 650px;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow:0px 3px 15px rgba(0,0,0.1);
+}
+
+/* Input Group */
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.input-group label{
+    margin-bottom: 7px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #0a192f;
+}
+
+.input-fields{
+    width:100%;
+    padding:12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+    transition: .3s;
+}
+
+.input-fields:focus{
+    border-color:orange;
+    box-shadow: 0 0 6px rgba(255,165,0,.25);
+}
+
+/* Textarea */
+textarea.input-fields{
+height:90px;
+resize:none;
+}
+
+/* Radio */
+
+.radio-group{
+display:flex;
+align-items:center;
+gap:15px;
+margin-top:8px;
+flex-wrap:wrap;
+}
+
+
+
+/* Button */
+.register-form button{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:8px;
+background:orange;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s; 
+}
+
+.register-form button:hover{
+transform:translateY(-2px);
+}
+
+/* Tablet */
+@media (max-width:768px)
+{
+    .register{
+        padding: 80px 15px 30px;
+    }
+
+    .register h1{
+        font-size: 32px;
+    }
+
+    .register-form{
+        padding: 22px;
+    }
+}
+
+/* Mobile */
+
+@media(max-width:480px)
+{
+    .register h1{
+    font-size:26px;
+    }
+
+    .register-form{
+    padding:18px;
+    }
+
+    .radio-group{
+    gap:10px;
+}
+}
+
+

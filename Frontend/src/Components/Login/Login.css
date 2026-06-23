@@ -1,0 +1,171 @@
+/* Main */
+.login{
+    padding: 85px 20px 40px;
+    background: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Heading */
+.login h1{
+    font-size: 38px;
+    margin-bottom: 18px;
+    color: #0a192f;
+    text-align: center;
+}
+
+/* Form */
+.login-form{
+    width: 100%;
+    max-width: 500px;
+    background: white;
+    padding: 28px;
+    border-radius: 15px;
+    box-shadow: 0px 3px 15px rgba(0,0,0,.1);
+}
+
+/* Group */
+.input-groups{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.input-groups label{
+    margin-bottom:8px;
+    font-size:15px;
+    font-weight:600;
+    color:#0a192f;
+}
+
+/* Inputs */
+.input-field{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+    transition: .3s;
+}
+
+.input-field:focus{
+    border-color:orange;
+    box-shadow: 0 0 6px rgba(255,165,0,.25);
+}
+
+/* 🔥 Password wrapper */
+.password-box{
+    position: relative;
+}
+
+.password-wrapper{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* input inside password */
+.password-wrapper .input-field{
+    padding-right: 45px;
+}
+
+/* eye icon */
+.toggle-eye{
+    position: absolute;
+    right: 12px;
+    cursor: pointer;
+    color: #666;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.toggle-eye:hover{
+    color: orange;
+    transform: scale(1.1);
+}
+
+/* Button */
+.login-form button{
+    width:100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: orange;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.login-form button:hover{
+    transform: translateY(-2px);
+    background: #ff8c00;
+}
+
+/* Register */
+.register-link{
+    margin-top:20px;
+    text-align:center;
+    font-size:14px;
+    color:#666;
+}
+
+.register-link a{
+    margin-left:6px;
+    text-decoration:none;
+    font-weight:600;
+    color:orange;
+    transition:.3s;
+}
+
+.register-link a:hover{
+    text-decoration:underline;
+}
+
+/* Forgot Password */
+.forgot-password{
+    display:flex;
+    justify-content:flex-end;
+    margin-top:-8px;
+    margin-bottom:18px;
+}
+
+.forgot-password a{
+    text-decoration:none;
+    font-size:14px;
+    color:orange;
+    font-weight:500;
+}
+
+.forgot-password a:hover{
+    text-decoration:underline;
+}
+
+/* Tablet */
+@media(max-width:768px){
+    .login{
+        padding:80px 15px 30px;
+    }
+
+    .login h1{
+        font-size:32px;
+    }
+
+    .login-form{
+        padding:22px;
+    }
+}
+
+/* Mobile */
+@media(max-width:480px){
+    .login h1{
+        font-size:26px;
+    }
+
+    .login-form{
+        padding:18px;
+    }
+}

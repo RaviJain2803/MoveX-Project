@@ -1,0 +1,90 @@
+.consignment-container{
+padding:40px;
+background:#f5f7fb;
+min-height:100vh;
+}
+
+.consignment-card{
+display:flex;
+gap:30px;
+}
+
+.left-section{
+flex:2;
+background:white;
+padding:30px;
+border-radius:18px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.preview{
+flex:1;
+background:white;
+padding:30px;
+border-radius:18px;
+height:fit-content;
+position:sticky;
+top:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.group{
+margin-bottom:20px;
+}
+
+.group label{
+display:block;
+margin-bottom:8px;
+font-weight:600;
+}
+
+.group input,
+.group select,
+.group textarea{
+width:100%;
+padding:14px;
+border:1px solid #ddd;
+border-radius:10px;
+outline:none;
+}
+
+.group input:focus,
+.group textarea:focus,
+.group select:focus{
+border-color:#2563eb;
+}
+
+.submit-btn{
+width:100%;
+padding:15px;
+border:none;
+background:#2563eb;
+color:white;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+}
+
+.submit-btn:hover{
+background:#1747b7;
+}
+
+.preview p{
+margin:16px 0;
+}
+
+.preview b{
+float:right;
+}
+
+@media(max-width:900px){
+
+.consignment-card{
+flex-direction:column;
+}
+
+.preview{
+position:static;
+}
+
+}

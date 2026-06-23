@@ -1,0 +1,116 @@
+.charity-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    font-family: Arial, sans-serif;
+}
+
+.charity-card {
+    width: 100%;
+    max-width: 450px;
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.charity-title {
+    font-size: 26px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.charity-text {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+/* Input */
+.charity-card input {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.charity-card input:focus {
+    border-color: #4facfe;
+    box-shadow: 0 0 8px rgba(79, 172, 254, 0.4);
+}
+
+/* Button */
+.charity-btn {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: #4facfe;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.charity-btn:hover {
+    background: #007bff;
+    transform: translateY(-2px);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 📱 Mobile */
+@media (max-width: 480px) {
+    .charity-card {
+        padding: 25px 20px;
+    }
+
+    .charity-title {
+        font-size: 22px;
+    }
+
+    .charity-text {
+        font-size: 13px;
+    }
+
+    .charity-card input {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .charity-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+/* 📱 Tablet */
+@media (max-width: 768px) {
+    .charity-card {
+        max-width: 400px;
+    }
+}
