@@ -3,11 +3,10 @@ import SubCategorySchemaModel from "../models/subcategory.model.js";
 import rs from "randomstring";
 import url from "url";
 import path from "path";
-import fs from "fs";
+import fs from "fs";   // ← SIRF YAHA RAKHO (top par)
 
 export const save = async (req, res) => {
   try {
-    // Check file exists
     if (!req.files || !req.files.caticon) {
       return res.status(400).json({
         status: false,
@@ -17,7 +16,6 @@ export const save = async (req, res) => {
 
     const caticon = req.files.caticon;
 
-    // Validate image types
     const allowedTypes = [
       "image/png",
       "image/jpeg",
@@ -33,51 +31,49 @@ export const save = async (req, res) => {
       });
     }
 
-    // Generate unique file name
-    const subcaticonnm =
-      rs.generate(10) + "_" + Date.now() + "_" + caticon.name;
+    // filename short rakho
+    const ext = path.extname(caticon.name);
 
-    // Prepare object for DB
+    const subcaticonnm =
+      rs.generate(8) + "_" + Date.now() + ext;
+
     const scDetails = {
       ...req.body,
-      subcaticonnm: subcaticonnm,
+      subcaticonnm,
     };
 
-    // Current directory
-   const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
+    const __dirname = url.fileURLToPath(
+      new URL("../", import.meta.url)
+    );
 
-const uploadDir = path.join(
-  process.cwd(),
-  "uploads",
-  "subcaticons"
-);
+    const uploadDir = path.join(
+      __dirname,
+      "uploads",
+      "subcaticons"
+    );
 
-// create folder if not exists
-import fs from "fs";
+    // folder auto create
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir, { recursive: true });
+    }
 
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
-}
+    const uploadpath = path.join(
+      uploadDir,
+      subcaticonnm
+    );
 
-const uploadpath = path.join(
-  uploadDir,
-  subcaticonnm
-);
-
-    // Save image
     await caticon.mv(uploadpath);
 
-    // Save record in DB
     await SubCategorySchemaModel.create(scDetails);
 
     return res.status(201).json({
       status: true,
       message: "Sub Category saved successfully",
     });
+
   } catch (error) {
     console.log(error);
 
-    // Duplicate subcategory
     if (error.code === 11000) {
       return res.status(400).json({
         status: false,
@@ -91,7 +87,6 @@ const uploadpath = path.join(
     });
   }
 };
-
 export const fetch = async (req, res) => {
   try {
     // Query conditions from URL
