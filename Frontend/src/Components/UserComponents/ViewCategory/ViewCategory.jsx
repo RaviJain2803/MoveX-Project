@@ -5,11 +5,14 @@ import { Link } from "react-router-dom";
 import { __categoryapiurl } from "../../../API_URL";
 
 function ViewCategoryUser() {
+  
+  const BACKEND_URL = import.meta.env.VITE_API_URL;
   const [categoryList, setCategoryList] = useState([]);
 
   const [search, setSearch] = useState("");
 
   const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     fetchCategory();
@@ -64,10 +67,7 @@ function ViewCategoryUser() {
               >
                 <div className="category-card">
                   <div className="image-box">
-                    <img
-                      src={`/uploads/caticons/${row.caticonnm}`}
-                      alt={row.catnm}
-                    />
+                    <img src={`${BACKEND_URL}/uploads/caticons/${row.caticonnm}`} alt={row.catnm}/>
                   </div>
 
                   <div className="card-content">
