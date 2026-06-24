@@ -3,6 +3,7 @@ import SubCategorySchemaModel from "../models/subcategory.model.js";
 import rs from "randomstring";
 import url from "url";
 import path from "path";
+import fs from "fs";
 
 export const save = async (req, res) => {
   try {
@@ -43,17 +44,25 @@ export const save = async (req, res) => {
     };
 
     // Current directory
-    const __dirname = url.fileURLToPath(new URL("./", import.meta.url));
+   const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
-    // Upload path
+const uploadDir = path.join(
+  process.cwd(),
+  "uploads",
+  "subcaticons"
+);
 
-    const uploadpath = path.join(
-      __dirname,
+// create folder if not exists
+import fs from "fs";
 
-      "../../Frontend/public/uploads/subcaticons",
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
 
-      subcaticonnm,
-    );
+const uploadpath = path.join(
+  uploadDir,
+  subcaticonnm
+);
 
     // Save image
     await caticon.mv(uploadpath);

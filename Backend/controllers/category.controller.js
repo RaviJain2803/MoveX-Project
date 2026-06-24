@@ -3,7 +3,7 @@ import rs from "randomstring";
 import CategorySchemaModel from "../models/category.model.js";
 import path from "path";
 import url from "url";
-
+import fs from "fs";
 
 
 export const save = async (req, res) => {
@@ -96,11 +96,31 @@ export const save = async (req, res) => {
         );
 
         // Create upload path
-        const uploadpath = path.join(
-            __dirname,
-            "../../Frontend/public/uploads/caticons",
-            caticonnm
-        );
+       // Current directory
+const __dirname = url.fileURLToPath(
+  new URL(".", import.meta.url)
+);
+
+// Upload directory
+const uploadDir = path.join(
+  process.cwd(),
+  "uploads",
+  "caticons"
+);
+
+// Create folder automatically
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
+
+// Final image path
+const uploadpath = path.join(
+  uploadDir,
+  caticonnm
+);
+
+// Save image
+await caticon.mv(uploadpath);
 
         // Save image into uploads folder
         await caticon.mv(uploadpath);
