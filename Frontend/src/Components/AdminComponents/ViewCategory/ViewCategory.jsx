@@ -5,6 +5,8 @@ import { __categoryapiurl } from "../../../API_URL";
 
 function ViewCategory() {
 
+  const backendUrl =import.meta.env.VITE_API_URL;
+
 // All category data
 const [categoryData, setCategoryData] = useState([]);
 
@@ -306,7 +308,7 @@ return (
               <td>
 
                 <img
-                  src={`/uploads/caticons/${row.caticonnm}`}
+                  src={`${backendUrl}/uploads/caticons/${row.caticonnm}`}
                   alt={row.catnm}
                   className="category-icon"
                 />

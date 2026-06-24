@@ -4,6 +4,9 @@ import axios from "axios";
 import { __subcategoryapiurl } from "../../../API_URL";
 
 function ViewSubCategory() {
+
+  const backendUrl = import.meta.env.VITE_API_URL;
+
   const [subCategoryData, setSubCategoryData] = useState([]);
 
   const [search, setSearch] = useState("");
@@ -189,7 +192,7 @@ function ViewSubCategory() {
 
                 <td>
                   <img
-                    src={`/uploads/subcaticons/${row.subcaticonnm}`}
+                    src={`${backendUrl}/uploads/subcaticons/${row.subcaticonnm}`}
                     alt=""
                     className="category-icon"
                   />
