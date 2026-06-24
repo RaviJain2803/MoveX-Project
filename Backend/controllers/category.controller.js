@@ -2,157 +2,107 @@ import '../models/connection.js';
 import rs from "randomstring";
 import CategorySchemaModel from "../models/category.model.js";
 import path from "path";
-import url from "url";
 import fs from "fs";
 
-
 export const save = async (req, res) => {
-    try {
-         console.log("BODY => ", req.body);
+  try {
+    console.log("BODY => ", req.body);
+    console.log("FILES => ", req.files);
 
-        console.log("FILES => ", req.files);
-
-        console.log("CATICON => ", req?.files?.caticon);
-        // Check if file is uploaded
-        // User must upload category icon
-        if (!req.files || !req.files.caticon) {
-            return res.status(400).json({
-                status: false,
-                message: "Category icon is required",
-            });
-        }
-
-        const caticon = req.files.caticon;
-
-        // Allow only image files
-        // Prevent users from uploading .exe, .zip, .js etc.
-        const allowedTypes = [
-            "image/png",
-            "image/jpeg",
-            "image/jpg",
-            "image/webp",
-            "image/svg+xml",
-        ];
-
-        if (!allowedTypes.includes(caticon.mimetype)) {
-            return res.status(400).json({
-                status: false,
-                message: "Only image files are allowed",
-            });
-        }
-
-        // Extract data from request body
-        const { catnm, description } = req.body;
-
-        // Backend validation
-        // Frontend validation ko trust nahi karte
-        // User Postman se empty category bhej sakta hai
-        if (!catnm || catnm.trim() === "") {
-            return res.status(400).json({
-                status: false,
-                message: "Category name is required",
-            });
-        }
-
-        // Description optional hai
-        // Agar nahi aayi to empty string save hogi
-        // Agar spaces hain to trim ho jayengi
-        const desc = description?.trim() || "";
-
-        // Generate unique filename
-        // Prevent same file names from overwriting each other
-        const caticonnm =
-            rs.generate(10) +
-            "_" +
-            Date.now() +
-            "_" +
-            caticon.name;
-
-        // Prepare category data for MongoDB
-
-        const cDetails = {
-
-            // Copy all request body fields
-            ...req.body,
-
-            // Remove extra spaces
-            // Example:
-            // "   House Shifting   "
-            // becomes
-            // "House Shifting"
-            catnm: catnm.trim(),
-
-            // Save cleaned description
-            description: desc,
-
-            // Save generated image name
-            caticonnm,
-        };
-
-        // Get current directory path
-        // Required because __dirname is not available in ES Modules
-        const __dirname = url.fileURLToPath(
-            new URL("./", import.meta.url)
-        );
-
-        // Create upload path
-       // Current directory
-const __dirname = url.fileURLToPath(
-  new URL(".", import.meta.url)
-);
-
-// Upload directory
-const uploadDir = path.join(
-  process.cwd(),
-  "uploads",
-  "caticons"
-);
-
-// Create folder automatically
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
-}
-
-// Final image path
-const uploadpath = path.join(
-  uploadDir,
-  caticonnm
-);
-
-// Save image
-await caticon.mv(uploadpath);
-
-        // Save image into uploads folder
-        await caticon.mv(uploadpath);
-
-        // Save category into MongoDB
-        await CategorySchemaModel.create(cDetails);
-
-        return res.status(201).json({
-            status: true,
-            message: "Category saved successfully",
-        });
-
-    } catch (error) {
-
-        console.log(error);
-
-        // MongoDB duplicate key error
-        // Triggered when same category name already exists
-        if (error.code === 11000) {
-            return res.status(400).json({
-                status: false,
-                message: "Category already exists",
-            });
-        }
-
-        return res.status(500).json({
-            status: false,
-            message: "Internal server error",
-        });
+    if (!req.files || !req.files.caticon) {
+      return res.status(400).json({
+        status: false,
+        message: "Category icon is required",
+      });
     }
-};
 
+    const caticon = req.files.caticon;
+
+    const allowedTypes = [
+      "image/png",
+      "image/jpeg",
+      "image/jpg",
+      "image/webp",
+      "image/svg+xml",
+    ];
+
+    if (!allowedTypes.includes(caticon.mimetype)) {
+      return res.status(400).json({
+        status: false,
+        message: "Only image files are allowed",
+      });
+    }
+
+    const { catnm, description } = req.body;
+
+    if (!catnm || !catnm.trim()) {
+      return res.status(400).json({
+        status: false,
+        message: "Category name is required",
+      });
+    }
+
+    const caticonnm =
+      rs.generate(10) +
+      "_" +
+      Date.now() +
+      "_" +
+      caticon.name;
+
+    const cDetails = {
+      ...req.body,
+      catnm: catnm.trim(),
+      description: description?.trim() || "",
+      caticonnm,
+    };
+
+    // Upload Folder
+    const uploadDir = path.join(
+      process.cwd(),
+      "uploads",
+      "caticons"
+    );
+
+    // Create folder if not exists
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir, {
+        recursive: true,
+      });
+    }
+
+    const uploadpath = path.join(
+      uploadDir,
+      caticonnm
+    );
+
+    // Save image
+    await caticon.mv(uploadpath);
+
+    // Save DB
+    await CategorySchemaModel.create(cDetails);
+
+    return res.status(201).json({
+      status: true,
+      message: "Category saved successfully",
+    });
+
+  } catch (error) {
+
+    console.log(error);
+
+    if (error.code === 11000) {
+      return res.status(400).json({
+        status: false,
+        message: "Category already exists",
+      });
+    }
+
+    return res.status(500).json({
+      status: false,
+      message: "Internal server error",
+    });
+  }
+};
 
 // export const save = async (req,res)=>{
 //     try {
