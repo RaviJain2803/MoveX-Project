@@ -7,6 +7,8 @@ import { __subcategoryapiurl } from "../../../API_URL";
 function ViewSubCategoryUser() {
   const { cnm } = useParams();
 
+  const backendUrl = import.meta.env.VITE_API_URL;
+
   const [subcategoryList, setSubCategoryList] = useState([]);
 
   const [search, setSearch] = useState("");
@@ -77,7 +79,7 @@ function ViewSubCategoryUser() {
               <div key={row._id} className="subcategory-card">
                 <div className="subcategory-image">
                   <img
-                    src={`/uploads/subcaticons/${row.subcaticonnm}`}
+                    src={`${backendUrl}/uploads/subcaticons/${row.subcaticonnm}`}
                     alt={row.subcatnm}
                   />
                 </div>
